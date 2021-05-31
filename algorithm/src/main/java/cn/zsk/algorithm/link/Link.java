@@ -16,29 +16,31 @@ public class Link<T> {
     //头结点
     private Node head;
 
-    public Link(){
+    public Link() {
         this.head = null;
     }
 
     @Data
-    private static class Node<T>{
+    private static class Node<T> {
         private T val;
         private Node next;
-        public Node(T val,Node next){
+
+        public Node(T val, Node next) {
             this.val = val;
             this.next = next;
         }
-        public Node(T val){
-            this(val,null);
+
+        public Node(T val) {
+            this(val, null);
         }
     }
 
     /**
      * 链表头部添加元素
-     * */
-    public void addFirst(T val){
+     */
+    public void addFirst(T val) {
         Node<T> nodeTemp = new Node<>(val);
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = nodeTemp;
             return;
         }
@@ -48,25 +50,25 @@ public class Link<T> {
 
     /**
      * 向链表尾部插入元素
-     * */
-    public void addLast(T t){
+     */
+    public void addLast(T t) {
         this.add(t, this.getLength());
     }
 
     /**
      * 向链表中间插入元素
-     * */
-    public void add(T t,int index){
-        if (index < 0 || index > this.getLength()){
+     */
+    public void add(T t, int index) {
+        if (index < 0 || index > this.getLength()) {
             throw new IllegalArgumentException("index is error");
         }
-        if (index == 0){
+        if (index == 0) {
             this.addFirst(t);
             return;
         }
         Node preNode = this.head;
         //找到要插入节点的前一个节点
-        for(int i = 0; i < index - 1; i++){
+        for (int i = 0; i < index - 1; i++) {
             preNode = preNode.next;
         }
         Node node = new Node(t);
@@ -79,11 +81,11 @@ public class Link<T> {
     /**
      * 获得本链表的长度
      */
-    public int getLength(){
+    public int getLength() {
         int length = 0;
         Node tmpNode = this.head;
-        while(tmpNode != null){
-            length ++;
+        while (tmpNode != null) {
+            length++;
             tmpNode = tmpNode.next;
         }
         return length;
@@ -93,14 +95,15 @@ public class Link<T> {
     public void displayLinkList() {
         Node node = this.getHead();
         while (node != null) {
-           log.info(node.getVal() + "--->");
+            System.out.printf((node.getVal() + "--->"));
             node = node.getNext();
         }
-        log.info("null");
+        System.out.printf("null");
+        System.out.println("");
     }
 
 
-    public void createLinkList(Link link){
+    public void createLinkList(Link link) {
         link.addFirst(1);
         link.addFirst(2);
         link.addFirst(3);
@@ -112,39 +115,60 @@ public class Link<T> {
 
     /**
      * 单向链表逆向
-     * */
-    public void reverseLinkList(){
+     */
+    public void reverseLinkList() {
         Link link = new Link();
         link.createLinkList(link);
 
-        log.info("原始链表：{}", JSON.toJSONString(link));
+        link.reverseLinkList1();
+        log.info("翻转后链表：{}", JSON.toJSONString(link));
     }
+
     /**
      * 交换next
-     * @param link
-     * @return: void
+     *
      * @throws
+     * @return: void
      * @time: 2021-05-31 17:13
      * @author: zsk
      */
-    public void reverseLinkList1(Link link){
-        if (null == link.head || null == link.head.next){
+    public void reverseLinkList1() {
+        if (null == head || null == head.next) {
             return;
         }
-        Node node = link.head;
 
-        Node cur = node;
-        Node next = node.next;
+        //前一个节点指针
 
+        Node preNode = null;
 
+        //当前节点指针
+
+        Node curNode = head;
+
+        //下一个节点指针
+
+        Node nextNode = null;
+
+        while (curNode != null) {
+            //nextNode 指向下一个节点
+            nextNode = curNode.getNext();
+
+            //将当前节点next域指向前一个节点
+            curNode.setNext(preNode);
+
+            //preNode 指针向后移动
+            preNode = curNode;
+
+            //curNode指针向后移动
+            curNode = nextNode;
+
+        }
 
     }
 
     public static void main(String[] args) {
         Link link = new Link();
         link.createLinkList(link);
-
-        link.displayLinkList();
 
         link.reverseLinkList();
 
