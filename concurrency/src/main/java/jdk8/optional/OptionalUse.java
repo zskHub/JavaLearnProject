@@ -1,6 +1,6 @@
 package jdk8.optional;
 
-import zsk.learn.java8.stream.StudentEntity;
+import jdk8.stream.StudentEntity;
 
 import java.util.Optional;
 

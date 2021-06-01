@@ -18,6 +18,7 @@
     <modules>
         <module>algorithm</module>
         <module>concurrency</module>
+        <module>basic</module>
     </modules>
 
     <properties>
