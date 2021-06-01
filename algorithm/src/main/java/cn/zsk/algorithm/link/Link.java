@@ -192,7 +192,9 @@ public class Link<T> {
     }
 
 
-    //获取第k个节点
+    /**
+     * 获取第k个节点
+     * */
     public Object getValByIndex(Integer k){
         if (this.getLength() < k){
             log.error("查询的节点超过链表总长度");
@@ -210,7 +212,9 @@ public class Link<T> {
         return null;
     }
 
-    //获取倒数第k个节点-利用栈
+    /**
+     * 获取倒数第k个节点-利用栈
+     * */
     public Object getValByReverseIndex_stack(Integer k){
         if (this.getLength() < k){
             log.error("获取倒数第K个节点失败，总链表长度小于要获取的长度");
@@ -355,6 +359,13 @@ public class Link<T> {
             }
         }
        return fastStep - slowStep;
+    }
+
+    /**
+     * 排序
+     * */
+    public void sort(){
+
     }
 
     public static void main(String[] args) {
