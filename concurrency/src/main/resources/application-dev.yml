@@ -1,7 +1,7 @@
 #配置数据源
 spring:
   application:
-    name: wmall-backend
+    name: concurrency
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -90,14 +90,14 @@ generator:
 #是否开启 swagger-ui，生产环境默认不开启
 swagger:
   enabled: true
-  title: wmall商城管理后台API
+  title: concurrency
   serverUrl: http://localhost:8009
   version: 3.0
 
 
 file:
-  path: /home/wmall/file/
-  avatar: /home/wmall/avatar/
+  path: /home/concurrency/file/
+  avatar: /home/concurrency/avatar/
   # 文件大小 /M
   maxSize: 100
   avatarMaxSize: 5
