@@ -1,4 +1,4 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.yield;
 
 public class YieldDemo {
     public static void main(String[] args) {
@@ -8,6 +8,7 @@ public class YieldDemo {
                 for (int i = 1; i <= 10; i++) {
                     System.out.println(Thread.currentThread().getName() + i);
                     if (i == 5) {
+                        //yield方法，暗示可以让出cpu，但是不一定马上就会执行
                         Thread.yield();
                     }
                 }

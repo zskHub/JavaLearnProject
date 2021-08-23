@@ -1,4 +1,4 @@
-package cn.zsk.concurrency.serviceImpl;
+package cn.zsk.concurrency.Test;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;

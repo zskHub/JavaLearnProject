@@ -1,4 +1,4 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.Thread;
 
 public class CurrentThreadDemo {
     public static void main(String[] args) {

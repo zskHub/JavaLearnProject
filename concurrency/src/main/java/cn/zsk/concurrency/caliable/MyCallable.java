@@ -1,4 +1,4 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.caliable;
 
 import java.util.concurrent.Callable;
 

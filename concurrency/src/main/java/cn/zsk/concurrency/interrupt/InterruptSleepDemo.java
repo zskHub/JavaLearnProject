@@ -1,12 +1,13 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.interrupt;
 
-public class InterruptDemo {
+public class InterruptSleepDemo {
     public static void main(String[] args) throws InterruptedException {
         Runnable interruptTask = new Runnable() {
             @Override
             public void run() {
                 int i = 0;
                 try {
+                    System.out.println("isInterrupted的初始值 " + Thread.currentThread().isInterrupted());
                     //在正常运行任务时，经常检查本线程的中断标志位，如果被设置了中断标志就自行停止线程
                     while (!Thread.currentThread().isInterrupted()) {
                         Thread.sleep(100); // 休眠100ms

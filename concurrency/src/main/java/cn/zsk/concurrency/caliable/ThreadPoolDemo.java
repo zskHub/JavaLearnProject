@@ -1,4 +1,4 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.caliable;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -7,6 +7,7 @@ import java.util.concurrent.Future;
 
 public class ThreadPoolDemo {
     public static void main(String[] args) {
+        //等待线程返回结果
         ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
         Future<String> future = newCachedThreadPool.submit(new MyCallable());
         if(!future.isDone()){

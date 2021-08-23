@@ -1,4 +1,4 @@
-package cn.zsk.basic.thread;
+package cn.zsk.concurrency.join;
 
 public class CycleWait implements Runnable{
     private String value;
@@ -18,6 +18,7 @@ public class CycleWait implements Runnable{
 //        while (cw.value == null){
 //            Thread.currentThread().sleep(100);
 //        }
+        //等待线程结束
         t.join();
         System.out.println("value : " + cw.value);
     }
