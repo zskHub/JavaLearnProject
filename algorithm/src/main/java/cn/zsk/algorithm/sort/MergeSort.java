@@ -1,7 +1,6 @@
 package cn.zsk.algorithm.sort;
 
 import com.alibaba.fastjson.JSON;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 归并排序
@@ -9,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
  * @Author : zsk
  * @CreateTime : 2021-06-01   17:32
  */
-@Slf4j
 public class MergeSort {
     public static int[] sort(int[] a, int low, int high) {
         int mid = (low + high) / 2;
@@ -48,14 +46,14 @@ public class MergeSort {
             a[x + low] = temp[x];
         }
 
-        log.info("数组排序进度：{}", JSON.toJSONString(a));
+        System.out.println("数组排序进度：" + JSON.toJSONString(a));
     }
 
     public static void main(String[] args) {
         int[] arr = {5, 4, 6, 3, 8, 9, 1, 7, 2};
 //        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        log.info("归并排序，原始数组：{}", JSON.toJSONString(arr));
+        System.out.println("归并排序，原始数组：" + JSON.toJSONString(arr));
         MergeSort.sort(arr, 0, arr.length - 1);
-        log.info("归并排序，结果数组：{}", JSON.toJSONString(arr));
+        System.out.println("归并排序，结果数组：" + JSON.toJSONString(arr));
     }
 }

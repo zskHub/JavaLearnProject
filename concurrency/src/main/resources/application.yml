@@ -42,3 +42,9 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+logging:
+  level:
+    com.ibatis: debug
+    org.springframework.web: debug
+    cn.zsk: debug

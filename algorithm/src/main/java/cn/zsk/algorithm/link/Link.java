@@ -2,7 +2,6 @@ package cn.zsk.algorithm.link;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Stack;
 
@@ -12,7 +11,6 @@ import java.util.Stack;
  * @Author : zsk
  * @CreateTime : 2021-05-31   10:57
  */
-@Slf4j
 @Data
 public class Link<T> {
     //头结点
@@ -116,7 +114,7 @@ public class Link<T> {
         link.addFirst(4);
         link.addFirst(5);
         link.addFirst(6);
-        log.info("插入数据后：Link:{}", JSON.toJSONString(link));
+        System.out.println("插入数据后：Link:" + JSON.toJSONString(link));
         link.displayLinkList();
 
         //增加一个环形结构
@@ -131,7 +129,7 @@ public class Link<T> {
     public void reverseLinkList() {
 //        this.reverseLinkList1();
         this.reverseLinkList_Stack();
-        log.info("翻转后链表：{}", JSON.toJSONString(this));
+        System.out.println("翻转后链表：" + JSON.toJSONString(this));
     }
 
     /**
@@ -197,7 +195,7 @@ public class Link<T> {
      * */
     public Object getValByIndex(Integer k){
         if (this.getLength() < k){
-            log.error("查询的节点超过链表总长度");
+            System.out.println("查询的节点超过链表总长度");
             return null;
         }
         Node node = head;
@@ -217,7 +215,7 @@ public class Link<T> {
      * */
     public Object getValByReverseIndex_stack(Integer k){
         if (this.getLength() < k){
-            log.error("获取倒数第K个节点失败，总链表长度小于要获取的长度");
+            System.out.println("获取倒数第K个节点失败，总链表长度小于要获取的长度");
             return null;
         }
         //利用栈
@@ -243,7 +241,7 @@ public class Link<T> {
      * */
     public Object getValByReverseIndex(Integer k){
         if (this.getLength() < k){
-            log.error("获取倒数第K个节点失败，总链表长度小于要获取的长度");
+            System.out.println("获取倒数第K个节点失败，总链表长度小于要获取的长度");
             return null;
         }
         //定义两个指针 q和p p比q快k步，然后两个指针同时前进，当p指针为空时，q指针就是对的
@@ -269,7 +267,7 @@ public class Link<T> {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast){
-                log.info("慢指针追上快指针，有环形结构");
+                System.out.println("慢指针追上快指针，有环形结构");
                 return true;
             }
         }
@@ -282,7 +280,7 @@ public class Link<T> {
     public Object getLoopEntrance(){
         //判断是否有环
         if (!this.checkLoop()){
-            log.info("没有环结构");
+            System.out.println("没有环结构");
             return 0;
         }
         /**
@@ -300,7 +298,7 @@ public class Link<T> {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast){
-                log.info("慢指针追上快指针，有环形结构.");
+                System.out.println("慢指针追上快指针，有环形结构.");
                 break;
             }
         }
@@ -325,7 +323,7 @@ public class Link<T> {
     public int getLoopLength(){
         //判断是否有环
         if (!this.checkLoop()){
-            log.info("没有环结构");
+            System.out.println("没有环结构");
             return 0;
         }
         /**
@@ -376,16 +374,16 @@ public class Link<T> {
 //
 //        link.displayLinkList();
 
-//        log.info("第K个节点的值,{}",link.getValByIndex(2));
+//        System.out.println("第K个节点的值:" + link.getValByIndex(2));
 //
-//        log.info("倒数第K个节点的值,{}",link.getValByReverseIndex(2));
+//        System.out.println("倒数第K个节点的值:" + link.getValByReverseIndex(2));
 //
-//        log.info("倒数第K个节点的值,{}",link.getValByReverseIndex(2));
+//        System.out.println("倒数第K个节点的值:" + link.getValByReverseIndex(2));
 
-//        log.info("判断是否有环形结构。结果：{}", link.checkLoop());
+//        System.out.println("判断是否有环形结构。结果：" + link.checkLoop());
 
-        log.info("获取环形的入口值。结果：{}", link.getLoopEntrance());
+        System.out.println("获取环形的入口值。结果：" + link.getLoopEntrance());
 
-        log.info("计算环形长度。结果：{}", link.getLoopLength());
+        System.out.println("计算环形长度。结果：" + link.getLoopLength());
     }
 }

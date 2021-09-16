@@ -1,9 +1,5 @@
 server:
-  port: 8002
-
-spring:
-  profiles:
-    active: dev
+  port: 8001
 
 logging:
   level:

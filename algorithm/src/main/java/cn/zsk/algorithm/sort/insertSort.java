@@ -9,13 +9,12 @@ import lombok.extern.slf4j.Slf4j;
  * @Author : zsk
  * @CreateTime : 2021-08-29   21:18
  */
-@Slf4j
 public class insertSort {
     public static void sort(int [] arr){
         if (arr == null || arr.length == 0) {
             return;
         }
-        log.info("原始数组信息：{}", JSON.toJSONString(arr));
+        System.out.println("原始数组信息：" + JSON.toJSONString(arr));
         int len = arr.length;
         for (int i = 1; i < len; i++) {
             for (int j = i; j > 0; j--) {
@@ -26,7 +25,7 @@ public class insertSort {
                 }
             }
         }
-        log.info("最终的结果：{}", JSON.toJSONString(arr));
+        System.out.println("最终的结果：" + JSON.toJSONString(arr));
     }
 
     public static void main(String[] args) {

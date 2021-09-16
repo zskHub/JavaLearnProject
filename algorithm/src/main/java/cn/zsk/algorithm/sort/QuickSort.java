@@ -9,11 +9,10 @@ import lombok.extern.slf4j.Slf4j;
  * @Author : zsk
  * @CreateTime : 2021-06-01   17:32
  */
-@Slf4j
 public class QuickSort {
     public static void doQuickSort(int[] source, int left, int right) {
         if (left > right){
-            log.error("左边的下标值大于右边的了。直接返回了");
+            System.err.println("左边的下标值大于右边的了。直接返回了");
             return;
         }
         int i = left;
@@ -54,22 +53,10 @@ public class QuickSort {
         doQuickSort(source, i +1, right);
     }
 
-    /**
-     * 交换a,b两个位置的元素
-     *
-     * @param a 位置a
-     * @param b 位置b
-     */
-    public static void swap(int[] source, int a, int b) {
-        int temp = source[a];
-        source[a] = source[b];
-        source[b] = temp;
-    }
-
     public static void main(String[] args) {
         int[] arr = {5, 4, 6, 3, 8, 9};
-        log.info("快速排序，原始数组：{}", JSON.toJSONString(arr));
+        System.out.println("快速排序，原始数组：" + JSON.toJSONString(arr));
         QuickSort.doQuickSort(arr, 0, arr.length - 1);
-        log.info("快速排序，结果数组：{}", JSON.toJSONString(arr));
+        System.out.println("快速排序，结果数组：" + JSON.toJSONString(arr));
     }
 }
